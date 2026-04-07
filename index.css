@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..500&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ─── Reset ─── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Tokens ─── */
+:root {
+  color-scheme: light dark;
+
+  --bg:             #fafaf8;
+  --surface:        #f2f2ef;
+  --surface-2:      #e8e8e4;
+  --overlay:        rgba(0, 0, 0, 0.04);
+
+  --border:         #ddddd8;
+  --border-subtle:  #ebebе8;
+
+  --text:           #3a3a38;
+  --text-muted:     #88887f;
+  --heading:        #111110;
+
+  --link:           #1a73d4;
+  --link-hover:     #0f5ab3;
+  --accent:         #1a73d4;
+  --accent-bg:      #edf3fc;
+
+  --easy:           #16a34a;
+  --easy-bg:        #dcfce7;
+  --medium:         #d97706;
+  --medium-bg:      #fef3c7;
+  --hard:           #dc2626;
+  --hard-bg:        #fee2e2;
+
+  --code-bg:        #ededea;
+  --code-text:      #2f2f2d;
+  --pre-bg:         #f2f2ef;
+
+  --shadow-sm:      0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+
+  --ease:           cubic-bezier(0.16, 1, 0.3, 1);
+  --duration:       160ms;
+
+  --radius-sm:      6px;
+  --radius-md:      10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:             #111110;
+    --surface:        #1a1a18;
+    --surface-2:      #222220;
+    --overlay:        rgba(255, 255, 255, 0.05);
+
+    --border:         #2e2e2b;
+    --border-subtle:  #242422;
+
+    --text:           #cececb;
+    --text-muted:     #6b6b68;
+    --heading:        #f0f0ee;
+
+    --link:           #5b9cf6;
+    --link-hover:     #7db4ff;
+    --accent:         #5b9cf6;
+    --accent-bg:      #1a2133;
+
+    --easy:           #4ade80;
+    --easy-bg:        #052e16;
+    --medium:         #fbbf24;
+    --medium-bg:      #1c1400;
+    --hard:           #f87171;
+    --hard-bg:        #2d0000;
+
+    --code-bg:        #1e1e1c;
+    --code-text:      #b8b8b5;
+    --pre-bg:         #161614;
+
+    --shadow-sm:      0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+  }
+}
+
+/* ─── Base ─── */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  padding: 48px 24px 96px;
+}
+
+/* ─── Layout ─── */
+main {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 48px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+footer {
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* ─── Typography ─── */
+h1 {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(1.75rem, 5vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--heading);
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  margin-top: 40px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+h2:first-child {
+  margin-top: 0;
+}
+
+p {
+  margin-bottom: 16px;
+  max-width: 65ch;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--heading);
+}
+
+em {
+  font-style: italic;
+  color: var(--heading);
+}
+
+/* ─── Lists ─── */
+ul,
+ol {
+  padding-left: 20px;
+  margin-bottom: 18px;
+}
+
+li {
+  margin-bottom: 6px;
+  padding-left: 4px;
+}
+
+li::marker {
+  color: var(--text-muted);
+}
+
+/* ─── Links ─── */
+a {
+  color: var(--link);
+  text-decoration: none;
+  text-underline-offset: 3px;
+  transition: color var(--duration) var(--ease);
+}
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* ─── Inline code ─── */
+code {
+  font-family: 'JetBrains Mono', Consolas, monospace;
+  font-size: 0.855em;
+  font-weight: 500;
+  background-color: var(--code-bg);
+  color: var(--code-text);
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+/* ─── Code blocks ─── */
+pre {
+  font-family: 'JetBrains Mono', Consolas, monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  background-color: var(--pre-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  overflow-x: auto;
+  margin: 10px 0 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  font-weight: 400;
+  color: inherit;
+}
+
+/* ─── Difficulty badge ─── */
+.difficulty {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 99px;
+  margin-top: 12px;
+}
+
+.difficulty::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.difficulty.easy {
+  color: var(--easy);
+  background-color: var(--easy-bg);
+}
+
+.difficulty.medium {
+  color: var(--medium);
+  background-color: var(--medium-bg);
+}
+
+.difficulty.hard {
+  color: var(--hard);
+  background-color: var(--hard-bg);
+}
+
+/* ─── Challenge list ─── */
+.challenge-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.challenge-list a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  color: var(--text);
+  text-decoration: none;
+  transition:
+    background-color var(--duration) var(--ease),
+    border-color var(--duration) var(--ease),
+    color var(--duration) var(--ease);
+}
+
+.challenge-list a:hover {
+  background-color: var(--surface);
+  border-color: var(--border);
+  color: var(--heading);
+  text-decoration: none;
+}
+
+.challenge-number {
+  font-family: 'JetBrains Mono', Consolas, monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  min-width: 32px;
+}
+
+.challenge-name {
+  font-weight: 500;
+  color: inherit;
+}
+
+/* ─── Empty state ─── */
+.empty-state {
+  padding: 32px 20px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.empty-state p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0;
+  max-width: none;
+}
+
+/* ─── Page navigation ─── */
+.page-navigation {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.page-navigation a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  transition: color var(--duration) var(--ease);
+}
+
+.page-navigation a:hover {
+  color: var(--heading);
+  text-decoration: none;
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: var(--accent-bg);
+  color: var(--heading);
+}
+
+/* ─── Scrollbar (Webkit) ─── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
