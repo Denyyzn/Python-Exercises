@@ -2,4 +2,4 @@
 
 Open the GitHub Pages version here:
 
-https://Denyyzn.github.io/Python-Exercises/
+https://denyyzn.github.io/Python-Exercises/
